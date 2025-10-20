@@ -265,7 +265,7 @@ document.getElementById("metodeV2L").addEventListener("change", function() {
   }
 });
 
-// Kirim via Telegram melalui Apps Script
+// Kirim via Telegram melalui webhook Make.com
 document.getElementById("btnWa").addEventListener("click", function() {
   const form = document.getElementById("orderForm");
   const inputs = form.querySelectorAll("input[required], select[required]");
@@ -288,7 +288,7 @@ document.getElementById("btnWa").addEventListener("click", function() {
   let nominal = document.getElementById("nominal").value;
   let harga = document.getElementById("harga").value;
 
-  let url = "https://script.google.com/macros/s/AKfycbyxD2OphmaH3aI7QifNvAh5CXDavbdl5_qO0IVplpWwByt9wwoTga_btnTofXz1zaF9xA/exec";
+  let url = "https://tphtyoeepyp3jpcnrptjuv482usm0jrl@hook.us2.make.com"; // URL webhook Make.com kamu
 
   fetch(url, {
     method: "POST",
